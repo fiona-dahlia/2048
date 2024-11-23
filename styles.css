@@ -1,0 +1,233 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #faf8ef;
+}
+
+.container {
+    text-align: center;
+    width: 500px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.title-section {
+    text-align: left;
+}
+
+.difficulty-selector {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.difficulty-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #bbada0;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.difficulty-btn.active {
+    background-color: #8f7a66;
+}
+
+.difficulty-btn:hover {
+    background-color: #9f8b82;
+}
+
+.new-game-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #8f7a66;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.new-game-btn:hover {
+    background-color: #7c6957;
+}
+
+h1 {
+    color: #776e65;
+    font-size: 60px;
+    margin: 0;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.score, .best-score {
+    background-color: #bbada0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    min-width: 100px;
+}
+
+.game-container {
+    background-color: #bbada0;
+    border-radius: 12px;
+    width: 500px;
+    height: 500px;
+    padding: 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.grid-cell {
+    background-color: rgba(238, 228, 218, 0.35);
+    border-radius: 6px;
+    width: 106.25px;
+    height: 106.25px;
+}
+
+.tile {
+    background-color: #eee4da;
+    border-radius: 6px;
+    font-size: 35px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.15s ease-in-out;
+    z-index: 1;
+}
+
+.tile-2 { 
+    background-color: #eee4da; 
+    color: #776e65;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tile-4 { 
+    background-color: #ede0c8; 
+    color: #776e65;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tile-8 { 
+    background-color: #f2b179; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tile-16 { 
+    background-color: #f59563; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tile-32 { 
+    background-color: #f67c5f; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tile-64 { 
+    background-color: #f65e3b; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tile-128 { 
+    background-color: #edcf72; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 30px;
+}
+
+.tile-256 { 
+    background-color: #edcc61; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 30px;
+}
+
+.tile-512 { 
+    background-color: #edc850; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 30px;
+}
+
+.tile-1024 { 
+    background-color: #edc53f; 
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+}
+
+.tile-2048 { 
+    background-color: #edc22e; 
+    color: white;
+    box-shadow: 0 2px 8px rgba(237, 194, 46, 0.3);
+    font-size: 25px;
+}
+
+.tile.new-tile {
+    animation: appear 0.2s ease-in-out;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tile.merged {
+    z-index: 2;
+    animation: pop 0.2s ease-in-out;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.instructions {
+    margin-top: 20px;
+    color: #776e65;
+}
